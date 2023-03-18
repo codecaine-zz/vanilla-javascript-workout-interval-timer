@@ -15,6 +15,9 @@ const currentSetDisplay = document.getElementById('current-set');
 const completionMessage = document.getElementById('completion-message');
 const noWorkoutsWarning = document.getElementById('no-workouts-warning');
 
+// app state messages   
+const workoutState = { workout: 'Workout', rest: 'Rest', allWorkoutsCompleted: 'All workouts completed.'}
+
 // Initialize variables
 let workoutListData = [];
 let timer = null;
@@ -105,8 +108,8 @@ function startWorkoutTimer() {
     // Highlight the current exercise and display the initial workout state
     currentExercise.classList.add('active');
     currentExerciseDisplay.textContent = `Current Exercise: ${workoutListData[currentWorkoutIndex].exerciseName}`;
-    speak('Workout')
-    workoutStateDisplay.textContent = 'Workout';
+    speak(workoutState.workout)
+    workoutStateDisplay.textContent = workoutState.workout;
 
     timer = setInterval(() => {
         currentTime--;
@@ -124,8 +127,8 @@ function startWorkoutTimer() {
         isRestPeriod = !isRestPeriod;
 
         if (isRestPeriod) {
-            speak('Rest')
-            workoutStateDisplay.textContent = 'Rest';
+            speak(workoutState.rest)
+            workoutStateDisplay.textContent = workoutState.rest;
 
             if (currentSet < workoutListData[currentWorkoutIndex].sets) {
                 currentSet++;
@@ -144,7 +147,7 @@ function startWorkoutTimer() {
                     timerDisplay.textContent = '00:00';
                     currentSetDisplay.textContent = '';
                     completionMessage.classList.remove('d-none'); // Show the completion message
-                    speak('All workouts completed.'); // Add text-to-speech for workout completion
+                    speak(workoutState.allWorkoutsCompleted); // Add text-to-speech for workout completion
                     return;
                 }
 
@@ -154,8 +157,8 @@ function startWorkoutTimer() {
             }
             currentTime = workoutListData[currentWorkoutIndex].rest;
         } else {
-            speak("Workout")
-            workoutStateDisplay.textContent = 'Workout';
+            speak(workoutState.workout)
+            workoutStateDisplay.textContent = workoutState.workout;
             currentTime = workoutListData[currentWorkoutIndex].interval;
         }
 
