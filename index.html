@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workout Interval Timer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container my-4">
+    <h1 class="text-center mb-4">Workout Interval Timer</h1>
+    <div class="row gy-3">
+      <div class="col-md-6">
+        <div class="form-floating mb-3">
+          <input type="text" id="exercise-name" class="form-control" placeholder="Exercise name">
+          <label for="exercise-name">Exercise Name</label>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-floating mb-3">
+          <input type="number" id="reps" class="form-control" placeholder="Reps">
+          <label for="reps">Reps</label>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-floating mb-3">
+          <input type="number" id="sets" class="form-control" placeholder="Sets">
+          <label for="sets">Sets</label>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-floating mb-3">
+          <input type="number" id="interval" class="form-control" placeholder="Interval (seconds)">
+          <label for="interval">Interval (seconds)</label>
+        </div>
+      </div>
+      <div class="col-12 text-center">
+        <button id="add-workout" class="btn btn-primary mt-3">Add Workout</button>
+      </div>
+    </div>
+    <ul id="workout-list" class="list-group my-4"></ul>
+    <div class="text-center">
+      <h2 id="timer-display">00:00</h2>
+      <h3 id="current-set" class="highlighted-text"></h3>
+      <h3 id="current-exercise" class="highlighted-text"></h3>
+      <div class="btn-group mt-3" role="group">
+        <button id="start" class="btn btn-success">Start</button>
+        <button id="pause" class="btn btn-warning" disabled>Pause</button>
+        <button id="clear-workouts" class="btn btn-danger">Clear Workouts</button>
+      </div>
+      <div id="completion-message" class="alert alert-success mt-4 d-none" role="alert">
+  All workouts completed!
+</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
