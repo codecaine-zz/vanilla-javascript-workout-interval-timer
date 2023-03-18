@@ -11,6 +11,7 @@ const startBtn = document.getElementById('start');
 const pauseBtn = document.getElementById('pause');
 const clearWorkoutsBtn = document.getElementById('clear-workouts');
 const currentExerciseDisplay = document.getElementById('current-exercise');
+const currentSetDisplay = document.getElementById('current-set');
 const completionMessage = document.getElementById('completion-message');
 const noWorkoutsWarning = document.getElementById('no-workouts-warning');
 
@@ -24,7 +25,7 @@ clearWorkoutsBtn.addEventListener('click', clearWorkouts);
 startBtn.addEventListener('click', startTimer);
 pauseBtn.addEventListener('click', pauseTimer);
 
-// add workout all input fields must be filled out
+// Add a new workout to the list
 function addWorkout() {
     const exerciseName = exerciseNameInput.value.trim();
     const reps = parseInt(repsInput.value);
@@ -32,7 +33,7 @@ function addWorkout() {
     const interval = parseInt(intervalInput.value);
     const rest = parseInt(restInput.value);
 
-    if (exerciseName && reps && sets && interval && rest) {
+    if (exerciseName && reps && sets && interval) {
         const workout = {
             exerciseName,
             reps,
@@ -47,6 +48,7 @@ function addWorkout() {
     }
 }
 
+// Display a workout in the list
 function displayWorkout(workout) {
     const li = document.createElement('li');
     li.textContent = `${workout.exerciseName} (${workout.reps} reps) x ${workout.sets} sets - ${workout.interval}s interval - ${workout.rest}s rest`;
@@ -54,6 +56,7 @@ function displayWorkout(workout) {
     workoutList.appendChild(li);
 }
 
+// Clear all workouts from the list
 function clearWorkouts() {
     workoutList.innerHTML = '';
     workoutListData = [];
@@ -62,12 +65,13 @@ function clearWorkouts() {
     clearInterval(timer); // Clear the interval timer
     timerDisplay.textContent = '00:00'; // Reset the timer display
     completionMessage.classList.add('d-none'); // Hide the completion message
-    document.getElementById('current-set').textContent = ''; // Clear the current set
+    currentSetDisplay.textContent = ''; // Clear the current set
     currentExerciseDisplay.textContent = ''; // Clear the current exercise
     startBtn.disabled = false; // Enable the start button
     pauseBtn.disabled = true; // Disable the pause button
 }
 
+// Start the timer
 function startTimer() {
     if (workoutListData.length > 0) {
         startBtn.disabled = true;
@@ -80,12 +84,14 @@ function startTimer() {
     }
 }
 
+// Pause the timer
 function pauseTimer() {
     startBtn.disabled = false;
     pauseBtn.disabled = true;
     clearInterval(timer);
 }
 
+// Start the workout timer
 function startWorkoutTimer() {
     let currentWorkoutIndex = 0;
     let currentSet = 1;
@@ -108,11 +114,12 @@ function startWorkoutTimer() {
             nextStep();
         } else {
             timerDisplay.textContent = formatTime(currentTime);
-            document.getElementById('current-set').textContent = `Current Set: ${currentSet}`;
+            currentSetDisplay.textContent = `Current Set: ${currentSet}`;
             currentExerciseDisplay.textContent = `Current Exercise: ${workoutListData[currentWorkoutIndex].exerciseName}`;
         }
     }, 1000);
 
+    // Go to the next step in the workout
     function nextStep() {
         isRestPeriod = !isRestPeriod;
 
@@ -135,7 +142,7 @@ function startWorkoutTimer() {
                     startBtn.disabled = false;
                     pauseBtn.disabled = true;
                     timerDisplay.textContent = '00:00';
-                    document.getElementById('current-set').textContent = '';
+                    currentSetDisplay.textContent = '';
                     completionMessage.classList.remove('d-none'); // Show the completion message
                     speak('All workouts completed.'); // Add text-to-speech for workout completion
                     return;
@@ -153,17 +160,19 @@ function startWorkoutTimer() {
         }
 
         timerDisplay.textContent = formatTime(currentTime);
-        document.getElementById('current-set').textContent = `Current Set: ${currentSet}`;
+        currentSetDisplay.textContent = `Current Set: ${currentSet}`;
         currentExerciseDisplay.textContent = `Current Exercise: ${workoutListData[currentWorkoutIndex].exerciseName}`;
     }
 }
 
+// Format the time
 function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
     return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
 }
 
+// Add text-to-speech
 function speak(text) {
     const synth = window.speechSynthesis;
     const utterance = new SpeechSynthesisUtterance(text);
