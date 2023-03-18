@@ -36,7 +36,7 @@ function addWorkout() {
     const interval = parseInt(intervalInput.value);
     const rest = parseInt(restInput.value);
 
-    if (exerciseName && reps && sets && interval) {
+    if (exerciseName && reps && sets && interval, rest) {
         const workout = {
             exerciseName,
             reps,
@@ -66,6 +66,7 @@ function clearWorkouts() {
     currentWorkoutIndex = 0;
     currentSet = 1;
     clearInterval(timer); // Clear the interval timer
+  
     timerDisplay.textContent = '00:00'; // Reset the timer display
     completionMessage.classList.add('d-none'); // Hide the completion message
     currentSetDisplay.textContent = ''; // Clear the current set
@@ -105,8 +106,6 @@ function startWorkoutTimer() {
     const workoutStateDisplay = document.getElementById('workout-state');
     const currentExercise = workoutList.children[currentWorkoutIndex];
 
-    // Highlight the current exercise and display the initial workout state
-    currentExercise.classList.add('active');
     currentExerciseDisplay.textContent = `Current Exercise: ${workoutListData[currentWorkoutIndex].exerciseName}`;
     speak(workoutState.workout)
     workoutStateDisplay.textContent = workoutState.workout;
@@ -134,7 +133,6 @@ function startWorkoutTimer() {
                 currentSet++;
             } else {
                 currentSet = 1;
-                currentExercise.classList.remove('active');
                 currentExercise.classList.add('completed');
                 currentExercise.dataset.completed = true;
 
@@ -142,6 +140,8 @@ function startWorkoutTimer() {
 
                 if (currentWorkoutIndex >= workoutListData.length) {
                     clearInterval(timer);
+                    currentExerciseDisplay.textContent = "";
+                    workoutStateDisplay.textContent = "";
                     startBtn.disabled = false;
                     pauseBtn.disabled = true;
                     timerDisplay.textContent = '00:00';
