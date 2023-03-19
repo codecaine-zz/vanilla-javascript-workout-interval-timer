@@ -15,7 +15,7 @@ const currentSetDisplay = document.getElementById('current-set');
 const completionMessage = document.getElementById('completion-message');
 const noWorkoutsWarning = document.getElementById('no-workouts-warning');
 
-// app state messages   
+// app state messages
 const workoutState = { workout: 'Workout', rest: 'Rest', allWorkoutsCompleted: 'All workouts completed.'}
 
 // Initialize variables
