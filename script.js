@@ -15,7 +15,7 @@ const currentSetDisplay = document.getElementById('current-set');
 const completionMessage = document.getElementById('completion-message');
 const noWorkoutsWarning = document.getElementById('no-workouts-warning');
 
-// app state messages   
+// app state messages
 const workoutState = { workout: 'Workout', rest: 'Rest', allWorkoutsCompleted: 'All workouts completed.'}
 
 // Initialize variables
@@ -66,7 +66,6 @@ function clearWorkouts() {
     currentWorkoutIndex = 0;
     currentSet = 1;
     clearInterval(timer); // Clear the interval timer
-  
     timerDisplay.textContent = '00:00'; // Reset the timer display
     completionMessage.classList.add('d-none'); // Hide the completion message
     currentSetDisplay.textContent = ''; // Clear the current set
@@ -150,10 +149,6 @@ function startWorkoutTimer() {
                     speak(workoutState.allWorkoutsCompleted); // Add text-to-speech for workout completion
                     return;
                 }
-
-                // Highlight the next exercise
-                const nextExercise = workoutList.children[currentWorkoutIndex];
-                nextExercise.classList.add('active');
             }
             currentTime = workoutListData[currentWorkoutIndex].rest;
         } else {
