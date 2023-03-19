@@ -10,7 +10,7 @@ The Interval Workout Timer is a web-based application designed to help you manag
 
 To use the Interval Workout Timer application, follow these simple steps:
 
-1. Ensure that both `workout_timer.html` and `workout_timer.js` files are located in the same folder.
+1. Ensure that `workout_timer.html`, `workout_timer.css`, `workout_timer.js`, and `favicon.png` files are located in the same folder.
 2. Open the `workout_timer.html` file in your preferred web browser.
 3. The application should load, and you can now start using the Interval Workout Timer.
 
