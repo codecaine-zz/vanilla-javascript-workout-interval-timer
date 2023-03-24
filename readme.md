@@ -1,44 +1,25 @@
-# Python Webview Workout Timer Application
+# Interval Workout Timer Application
 
-This application uses the `pywebview` library to create a web-based interface for managing workouts and tracking progress. The app allows you to add exercises, specify the number of sets and reps, and set the interval and rest times between sets.
+This document provides a brief overview of the Interval Workout Timer application and its usage.
 
-## Prerequisites
+## Overview
 
-- Python 3.6 or higher
-- pywebview library: Install with `pip install pywebview`
+The Interval Workout Timer is a web-based application designed to help you manage your interval workouts effectively. With this application, you can easily keep track of your workout intervals and rest periods, ensuring you have an efficient and productive exercise session.
 
-## Features
+## Usage
 
-- Add workouts with specified exercise name, number of reps, sets, interval, and rest time
-- Display the list of added workouts
-- Clear all workouts from the list
-- Start the workout timer, which progresses through the workout list
-- Pause the workout timer at any time
-- Display the current exercise, set, and state (workout or rest)
-- Completion message displayed after all workouts are completed
-- Text-to-speech announcements for workout and rest periods
+To use the Interval Workout Timer application, follow these simple steps:
 
-## Implementation
+1. Ensure that `workout_timer.html`, `workout_timer.css`, `workout_timer.js`, and `favicon.png` files are located in the same folder.
+2. Open the `workout_timer.html` file in your preferred web browser.
+3. The application should load, and you can now start using the Interval Workout Timer.
 
-1. Save the provided JavaScript code in a separate HTML file (e.g., `workout_timer.html`).
-2. Use the `pywebview` library to create a window and load the HTML file.
-3. Run the provided Python script to launch the application.
+## Live Demo
 
-Here's the Python script to launch the application using `pywebview`:
+You can try out the Interval Workout Timer application by visiting the live demo at the following link:
 
-```python
-import webview
+[Interval Workout Timer Live Demo](https://www.codefreelance.net/workout_timer.html)
 
-def start_app():
-    webview.create_window('Workout Interval Timer', 'workout_timer.html', width=800, height=600)
-    webview.start()
+**Note**: For the best experience, we recommend using the latest version of Google Chrome, Mozilla Firefox, or Microsoft Edge.
 
-if __name__ == '__main__':
-    start_app()
-```
-
-
-## To run the application
-```bash
-python main.py
-```
+Happy exercising!
