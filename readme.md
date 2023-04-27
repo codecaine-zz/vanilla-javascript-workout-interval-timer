@@ -20,7 +20,7 @@ You can try out the Interval Workout Timer application by visiting the live demo
 
 [Interval Workout Timer Live Demo](https://www.codefreelance.net/workout_timer.html)
 
-![alt text](workout_timer.png)
+![workout timer](workout_timer.png)
 
 **Note**: For the best experience, we recommend using the latest version of Google Chrome, Mozilla Firefox, or Microsoft Edge.
 
