@@ -18,7 +18,7 @@ To use the Interval Workout Timer application, follow these simple steps:
 
 You can try out the Interval Workout Timer application by visiting the live demo at the following link:
 
-[Interval Workout Timer Live Demo](https://www.codefreelance.net/workout_timer.html)
+[Interval Workout Timer Live Demo](https://www.codefreelance.net/apps/workout_timer)
 
 ![workout timer](workout_timer.png)
 
