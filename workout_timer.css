@@ -278,12 +278,17 @@ footer {
 }
 
 footer a {
-  color: #6c757d;
-  transition: color 0.3s ease;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  opacity: 0.8;
 }
 
 footer a:hover {
-  color: #007bff;
+  color: #feca57;
+  opacity: 1;
+  transform: translateY(-2px);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 /* Responsive adjustments */
