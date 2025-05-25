@@ -138,7 +138,7 @@ This project is open source and available under the MIT License.
 ## 🔗 Links
 
 - **GitHub Repository**: [codecaine-zz/workout_interval_timer](https://github.com/codecaine-zz/workout_interval_timer)
-- **Live Demo**: Open `workout_timer.html` in your browser
+- **Live Demo**: [https://codefreelance.net/apps/interval_timer/](https://codefreelance.net/apps/interval_timer/)
 
 ---
 
